@@ -1,20 +1,17 @@
 -- Active: 1724324587640@@127.0.0.1@3307@demo0001
-CREATE DATABASE demo0001;
-USE demo0001;
+CREATE DATABASE IF NOT EXISTS tech;
+USE tech;
 
-CREATE TABLE  Cource (Cource_id CHAR(8) PRIMARY KEY ,
-Name VARCHAR(20),
+CREATE TABLE IF NOT EXISTS Cource 
+(
+Cource_id CHAR(8) PRIMARY KEY ,
+Name VARCHAR(100),
 Credit INT ,
 Week VARCHAR(20)
 );
 
- desc cource;
- 
- ALTER TABLE cource
- MODIFY Name VARCHAR(40);
 
-
-INSERT INTO COURCE VALUE("ICT1213","Database_management__system",3,"15"),
+INSERT INTO Cource VALUES("ICT1213","Database_management_system",3,"15"),
                         ("ICT1222","computer_rchitecture",2,"15"), 
                         ("ICT1233","Computer_network",3,"15"),  
                         ("ICT1242","Server_side_web_development",2,"15"),  
@@ -26,7 +23,7 @@ INSERT INTO COURCE VALUE("ICT1213","Database_management__system",3,"15"),
                         ("ICT12101","Software_engineering",2,"15");
 
 
-CREATE TABLE ICT1213_course_marks ( 
+CREATE TABLE IF NOT EXISTS ICT1213_course_marks ( 
 student_id varchar(10) NOT NULL,
   quiz_1 decimal(5,2) NOT NULL DEFAULT 0.00,
   quiz_2 decimal(5,2) NOT NULL DEFAULT 0.00,
@@ -63,7 +60,7 @@ INSERT INTO ICT1213_course_marks  (student_id, quiz_1, quiz_2, quiz_3,inclass_te
 ('TG1427', 95.00,100.00, 85.00, 100.00, 90.00, 85.00);
 
 
-CREATE TABLE ICT1222_course_marks ( 
+CREATE TABLE IF NOT EXISTS ICT1222_course_marks ( 
 student_id varchar(10) NOT NULL,
   quiz_1 decimal(5,2) NOT NULL DEFAULT 0.00,
   quiz_2 decimal(5,2) NOT NULL DEFAULT 0.00,
@@ -135,7 +132,7 @@ INSERT INTO ICT1233_course_marks  (student_id, quiz_1, quiz_2, quiz_3,inclass_te
 ('TG1426', 74.00, 85.50, 73.91,  79.50, 88.50, 88.50),
 ('TG1427', 86.00, 99.60, 95.52, 93.50, 99.50, 95.80);
 
-CREATE TABLE ICT1242_course_marks ( 
+CREATE TABLE IF NOT EXISTS ICT1242_course_marks ( 
 student_id varchar(10) NOT NULL,
   quiz_1 decimal(5,2) NOT NULL DEFAULT 0.00,
   quiz_2 decimal(5,2) NOT NULL DEFAULT 0.00,
@@ -170,7 +167,7 @@ INSERT INTO ICT1242_course_marks  (student_id, quiz_1, quiz_2, quiz_3,inclass_te
 ('TG1426',100.00, 100.00, 90.00, 90.00, 95.00, 90.00),
 ('TG1427', 86.00, 99.60, 95.52, 93.50, 99.50, 95.80);
 
-CREATE TABLE ICT1253_course_marks ( 
+CREATE TABLE IF NOT EXISTS ICT1253_course_marks ( 
 student_id varchar(10) NOT NULL,
   quiz_1 decimal(5,2) NOT NULL DEFAULT 0.00,
   quiz_2 decimal(5,2) NOT NULL DEFAULT 0.00,
@@ -207,7 +204,7 @@ INSERT INTO ICT1253_course_marks  (student_id, quiz_1, quiz_2, quiz_3,inclass_te
 ('TG1426',90.00, 87.00, 97.00, 90.06, 95.50, 80.00),
 ('TG1427',80.00, 80.00, 70.00, 65.00, 87.00, 90.00);
 
-CREATE TABLE ICT1261_course_marks ( 
+CREATE TABLE IF NOT EXISTS ICT1261_course_marks ( 
 student_id varchar(10) NOT NULL,
   quiz_1 decimal(5,2) NOT NULL DEFAULT 0.00,
   quiz_2 decimal(5,2) NOT NULL DEFAULT 0.00,
@@ -243,7 +240,7 @@ INSERT INTO ICT1261_course_marks  (student_id, quiz_1, quiz_2, quiz_3,inclass_te
 ('TG1426',60.00, 80.00, 70.00,  87.00, 65.00,86.00),
 ('TG1427', 95.00, 100.00, 89.00,  90.00, 85.00,99.00);
 
-CREATE TABLE ICT1271_course_marks ( 
+CREATE TABLE IF NOT EXISTS ICT1271_course_marks ( 
 student_id varchar(10) NOT NULL,
   quiz_1 decimal(5,2) NOT NULL DEFAULT 0.00,
   quiz_2 decimal(5,2) NOT NULL DEFAULT 0.00,
@@ -278,7 +275,7 @@ INSERT INTO ICT1271_course_marks  (student_id, quiz_1, quiz_2, quiz_3,inclass_te
 ('TG1426', 90.00, 80.00, 80.00, 90.00,  89.00,78.80),
 ('TG1427', 95.50, 90.60, 88.00,  80.50, 89.00,67.50);
 
-CREATE TABLE ICT1283_course_marks ( 
+CREATE TABLE IF NOT EXISTS ICT1283_course_marks ( 
 student_id varchar(10) NOT NULL,
   quiz_1 decimal(5,2) NOT NULL DEFAULT 0.00,
   quiz_2 decimal(5,2) NOT NULL DEFAULT 0.00,
@@ -349,7 +346,7 @@ INSERT INTO ICT1293_course_marks  (student_id, quiz_1, quiz_2, quiz_3,inclass_te
 ('TG1426', 90.00, 80.00, 65.00, 80.00, 68.50, 76.00),
 ('TG1427', 95.50, 90.60, 90.00, 80.00, 80.00, 94.00);
 
-CREATE TABLE ICT12101_course_marks ( 
+CREATE TABLE IF NOT EXISTS ICT12101_course_marks ( 
 student_id varchar(10) NOT NULL,
   quiz_1 decimal(5,2) NOT NULL DEFAULT 0.00,
   quiz_2 decimal(5,2) NOT NULL DEFAULT 0.00,
