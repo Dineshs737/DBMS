@@ -2,25 +2,25 @@
 -- lechure table structure
 
 CREATE TABLE Lecturer(
-lecturer_ID char(5) PRIMARY KEY,
-Subject   varchar(50),
+lecturer_ID CHAR(5) PRIMARY KEY,
+Cource_id   CHAR(8),
 Name  varchar(30),
 Address varchar(100));
 
 
 -- data of the table
 
-INSERT INTO lecturer VALUES
-('L001','Database Management System','Mr.Aayansh',"123 Main Street, Colombo 07"),
-('L002','Computer Architecture','Miss.Kavindi','45 Galle Road, Mount Lavinia'),
-('L003','Computer Networks','Miss.Nadeesha','No. 5, Kandy Road, Nugegoda'),
-('L004','Server Side Web Development','mr.Tharindu','78, Church Street, Negombo'),
-('L005','Computer Programming','Miss.Ishara','34, Peradeniya Road, Kandy'),
-('L006','Multimedia Technology','Mr.Lakal','10, Kottawa Junction, Piliyandala'),
-('L007','Fundamendals of Information System','mr.Ruwan','56, Gampaha Road, Kelaniya'),
-('L008','Web Technology','Mr.Nishan',"thadchanamaruthamaadhu mannar"),
-('L009','Artificial Inteligence','Miss.Shaneeka','22, High Street, Jaffna'),
-('L010','Software engineering','Ms.Kusum','88, Baduwatta, Galle');
+INSERT INTO Lecturer VALUES
+('L001','ICT1213','Mr.Aayansh',"123 Main Street, Colombo 07"),
+('L002','ICT1222','Miss.Kavindi','45 Galle Road, Mount Lavinia'),
+('L003','ICT1233','Miss.Nadeesha','No. 5, Kandy Road, Nugegoda'),
+('L004','ICT1242','mr.Tharindu','78, Church Street, Negombo'),
+('L005','ICT1253','Miss.Ishara','34, Peradeniya Road, Kandy'),
+('L006','ICT1261','Mr.Lakal','10, Kottawa Junction, Piliyandala'),
+('L007','ICT1271','mr.Ruwan','56, Gampaha Road, Kelaniya'),
+('L008','ICT1283','Mr.Nishan',"thadchanamaruthamaadhu mannar"),
+('L009','ICT1293','Miss.Shaneeka','22, High Street, Jaffna'),
+('L010','ICT12101','Ms.Kusum','88, Baduwatta, Galle');
 --- attendance table structure
 
 CREATE TABLE `Attendance` (
@@ -47,7 +47,7 @@ CREATE TABLE `Attendance` (
 
 ---- data of the attendance
 
-INSERT INTO `attendance` (`student_id`, `course_id`, `week_01`, `week_02`, `week_03`, `week_04`, `week_05`, `week_06`, `week_07`, `week_08`, `week_09`, `week_10`, `week_11`, `week_12`, `week_13`, `week_14`, `week_15`) VALUES
+INSERT INTO `Attendance` (`student_id`, `course_id`, `week_01`, `week_02`, `week_03`, `week_04`, `week_05`, `week_06`, `week_07`, `week_08`, `week_09`, `week_10`, `week_11`, `week_12`, `week_13`, `week_14`, `week_15`) VALUES
 ('TG1062', 'ICT1213', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'),
 ('TG1062', 'ICT1222', '1', '1', '1', 'AB', '1', '1', '1', '1', '1', 'MC', '1', 'AB', '1', '1', '1'),
 ('TG1062', 'ICT1233', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'),
