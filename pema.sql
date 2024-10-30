@@ -252,4 +252,76 @@ INSERT INTO `Attendance` (`student_id`, `course_id`, `week_01`, `week_02`, `week
 
 
 
+CREATE TABLE student (
+    student_id CHAR(6) PRIMARY KEY,
+    NIC CHAR(12) UNIQUE,
+    name VARCHAR(30),
+    batch CHAR(4),
+    gender CHAR(1) CHECK (gender IN ('M', 'F')),
+    address VARCHAR(30),
+    contact CHAR(10)
+);
+
+
+-- student table data 
+
+INSERT INTO student(student_id, NIC, name, batch, gender, address, contact) VALUES
+('TG1062', '200127800625', 'Jamper', '2022', 'M',"Jamper999@gmail.com", '761234654'),
+('TG1063', '200157800625', 'Kumar', '2022', 'M', "otara87@gmail.com", '761234789'),
+('TG1064', '200130800025', 'Rohit', '2022', 'M', "manodra@gmail.com", '761234678'),
+('TG1414', '200227900425', 'Karuvadu', '2022', 'M',"rajapaksha@gmail.com", '761234565'),
+('TG1413', '200240800625', 'Rani', '2022', 'F', "asmaakram2@gmail.com", '761234564'),
+('TG1345', '200127700625', 'Pampu', '2022', 'M', "kanadipudayan@gmail.com", '718032400'),
+('TG1067', '200127800626', 'Shalini', '2022', 'F',"shalini52@gmail.com", '761234567'),  -- Updated NIC for uniqueness
+('TG1415', '200127800565', 'Pema', '2022', 'M',"pema00@gmail.com" , '718032468'),
+('TG1417', '200127800800', 'Anpu', '2022', 'M',"anpuSin@gmail.com", '761234573'),
+('TG1416','200277889955','Dinesh','2022'.'M','dinesh@gmail.com'.'749900223'),
+('TG1418','200212345678','kaviya','2022','F','kaviya@gmail.com','788765432'),
+('TG1419','200289765411','Dhanu','2022','F','dhanu@gmail.com','745432188'),
+('TG1420','202289786756','Dharshi','2022','F','dharshi@gmail.com','751234509'),
+('TG1421','200299666543','Thinesh','2022','M','thinesh@gmail.com','750987653'),
+('TG1422','200278904321','Akram','2022','M','akram@gmail.com','764545456'),
+('TG1423','200234567890','Thakshan','2022','M','thak@gmail.com','761234098'),
+('TG1424','200287667887','Keerthan','2022','M','keerthan@gmail.com','789876588'),
+('TG1425','200223450987','madhu','2022','F','madhu@gmail.com','753456789'),
+('TG1426','200212347890','Suba','2022','F','suba@gmail.com','747474745'),
+('TG1427','200298769876','praveen','2022'.'praveen@gmail.com','757698089');
+
+
+
+
+-- technical offcer structure 
+
+CREATE TABLE Technical_Officer (
+Technical_ID CHAR(5) PRIMARY KEY,
+Name VARCHAR(50),
+Contact INT);
+
+-- technical officer data 
+
+
+INSERT INTO Technical_officer ('technical_Id','Name', 'Contact') VALUES
+('Tec_Off_01', 'Kavindi', '769870000'),
+('Tec_Off_02', 'Raja', '755566799'),
+('Tec_Off_04', 'Kamal','760987654'),
+('Tec_Off_07', 'Vihanga','760000987'),
+('Tec_Off_09', 'Mithu', '756677665');
+
+
+-- dean table stucture 
+
+CREATE TABLE Dean (
+  'dean_id' varchar(8) NOT NULL,
+  'start_date' date NOT NULL,
+  'dean_user_id' int(9) NOT NULL
+ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci);
+
+
+-- dean table data 
+
+INSERT INTO Dean ('dean_id', 'start_date', 'dean_user_id') VALUES
+('D0001', '2017-01-01', 1),
+('D0002', '2023-01-01', 16);
+
+
 
