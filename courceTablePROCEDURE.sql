@@ -166,6 +166,58 @@ FROM ICT12101_course_marks;
 -- SELECT * FROM `Software_engineeringMarks`;
 
 
+CREATE VIEW `Software_engineeringMarks` AS 
+SELECT student_id AS `TG NUMBER` ,
+quiz_1 AS `QUIZ ONE` ,
+quiz_2 AS `QUIZ TWO`, 
+quiz_3 AS `QUIZ THREE`,
+inclass_test_marks AS `IN CLASS TEST`,
+mid_exam_marks AS `MID EXAM`, 
+end_exam_marks AS `END EXAM` 
+FROM ICT12101_course_marks;
+
+
+-- SELECT * FROM `Software_engineeringMarks`;
+
+
+
+-- show all lacturer data from lecturer table
+
+CREATE VIEW `lecturer` AS 
+SELECT lecturer_ID AS `lecturer ID` ,
+Cource_id  AS `Cource ID`,
+Name AS `Lecturer Name` ,
+Address AS `Address` from Lecturer;
+
+-- SELECT * FROM `lecturer`;
+
+
+CREATE VIEW `lecturer` AS 
+SELECT lecturer_ID AS `lecturer ID` ,
+Cource_id  AS `Cource ID`,
+Name AS `Lecturer Name` ,
+Address AS `Address` from Lecturer;
+
+-- SELECT * FROM `lecturer`;
+
+
+-- show all Attendance data
+
+CREATE VIEW `Attendance` AS 
+SELECT lecturer_ID AS `lecturer ID` ,
+
+
+
+
+
+Cource_id  AS `Cource ID`,
+Name AS `Lecturer Name` ,
+Address AS `Address` from Lecturer;
+
+
+
+
+-- SELECT * FROM `lecturer`;
 
 
 
