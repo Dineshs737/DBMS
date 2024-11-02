@@ -664,3 +664,45 @@ INSERT INTO `Examination` VALUES
     ("ICT183", "Web_technology", "2024-11-30"),
     ("ICT1293", "Artificial_intelligence", "2024-12-02"),
     ("ICT212", "Software_engineering", "2024-12-04");
+
+
+###  ## `Payables`  table structure
+
+  CREATE TABLE IF NOT EXISTS `Payables` (
+    `Student_ID` CHAR(6),
+    `Type` VARCHAR(50),
+    `Amount` DECIMAL(7,2),
+    `Date` DATE
+);  
+
+-- Insert records into `Examination`
+
+INSERT INTO `Payables` VALUES
+    ('TG1416', 'Chair damage', 5000.00, '2024-10-05'),
+    ('TG1425', 'Table damage', 3000.00, '2024-07-09'),
+    ('TG1420', 'door damage', 3500.00, '2024-04-22'),
+    ('TG1422', 'chair damage', 2000.00, '2024-09-13');
+
+
+
+###  ## `Medical`  table structure
+	
+CREATE TABLE IF NOT EXISTS `Medical` (
+    `Medical_ID` CHAR(5) PRIMARY KEY,
+    `Description` VARCHAR(100),
+    `Date` DATE
+);
+
+
+-- Insert records into  `Medical`
+
+INSERT INTO `Medical` VALUES
+    ('M001', 'Fever', '2024-08-15'),
+    ('M002', 'Stomach pain', '2024-07-08'),
+    ('M003', 'Leg broken', '2024-09-24');
+
+
+
+
+
+
