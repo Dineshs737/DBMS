@@ -89,8 +89,6 @@ INSERT INTO `user` (`NIC`, `email`, `role`, `contact_no`, `password`) VALUES
 ##SART
 
 INSERT INTO `user` (`NIC`, `email`, `role`, `contact_no`, `password`) VALUES
-    ('198009809877', 'praveen.kanth@gmail.com', 'Dean', '0712345678', '4f3b8a1e2c3d'),
-    ('197278998766', 'thinesh@gmail.com', 'Dean', '0781234567', '6e7f1d2c4b5a'),
-    ('1970770012344', 'snakebabu@gmail.com', 'Dean', '0745678123', '9a2b4e1d6c3f');
+    ('198009809877', 'praveen.kanth@gmail.com', 'Dean', '0712345678', '4f3b8a1e2c3d');
 ##END
 
