@@ -387,7 +387,7 @@ INSERT INTO ICT12101_course_marks  (student_id, quiz_1, quiz_2, quiz_3,inclass_t
 
 
 
- 
+ -- creating student users--
 
 CREATE USER'TG1062'@'localhost'
      IDENTIFIED BY'stupwd';
@@ -419,6 +419,9 @@ CREATE USER'TG1420'@'localhost'
      IDENTIFIED BY'stupwd';
 CREATE USER'TG1421'@'localhost'
      IDENTIFIED BY'stupwd';
+     
+CREATE USER'TG1422'@'localhost'
+     IDENTIFIED BY'stupwd';
 CREATE USER'TG1423'@'localhost'
      IDENTIFIED BY'stupwd';
 CREATE USER'TG1424'@'localhost'
@@ -430,6 +433,144 @@ CREATE USER'TG1426'@'localhost'
 CREATE USER'TG1427'@'localhost'
      IDENTIFIED BY'stupwd';
 
+ --give privileges for student--
 
+ GRANT SELECT  ON *.* TO'TG1062'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1063'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1064'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1414'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1413'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1345'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1067'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1415'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1416'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1417'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1418'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1419'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1420'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1421'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1423'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1424'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1425'@'localhost';
+ GRANT SELECT  ON *.* TO'TG1426'@'localhost';
+
+ 
+-- creating lecture user--
+
+CREATE USER'L001'@'localhost'
+     IDENTIFIED BY'lecpwd';
+
+
+CREATE USER'L002'@'localhost'
+     IDENTIFIED BY'lecpwd';
      
+CREATE USER'L003'@'localhost'
+     IDENTIFIED BY'lecpwd';
+     
+CREATE USER'L004'@'localhost'
+     IDENTIFIED BY'lecpwd';
+     
+CREATE USER'L005'@'localhost'
+     IDENTIFIED BY'lecpwd';
+     
+CREATE USER'L006'@'localhost'
+     IDENTIFIED BY'lecpwd';
+     
+CREATE USER'L007'@'localhost'
+     IDENTIFIED BY'lecpwd';
+     
+CREATE USER'L008'@'localhost'
+     IDENTIFIED BY'lecpwd';
+     
+CREATE USER'L009'@'localhost'
+     IDENTIFIED BY'lecpwd';
+     
+CREATE USER'L0010'@'localhost'
+     IDENTIFIED BY'lecpwd';     
         
+--give privilleges for lectures--
+
+GRANT ALL PRIVILEGES ON*.*
+     TO  'L001'@'localhost';
+GRANT ALL PRIVILEGES ON*.*
+     TO  'L002'@'localhost';
+GRANT ALL PRIVILEGES ON*.*
+     TO  'L003'@'localhost';
+GRANT ALL PRIVILEGES ON*.*
+     TO  'L004'@'localhost';
+GRANT ALL PRIVILEGES ON*.*
+     TO  'L005'@'localhost';
+GRANT ALL PRIVILEGES ON*.*
+     TO  'L006'@'localhost';
+GRANT ALL PRIVILEGES ON*.*
+     TO  'L007'@'localhost';
+GRANT ALL PRIVILEGES ON*.*
+     TO  'L008'@'localhost';
+GRANT ALL PRIVILEGES ON*.*
+     TO  'L009'@'localhost';
+GRANT ALL PRIVILEGES ON*.*
+     TO  'L0010'@'localhost';
+     
+
+-- create dean sir user --
+
+CREATE USER'D0001'@'localhost'
+     IDENTIFIED BY'deanpwd';
+---give privilges --
+GRANT ALL PRIVILEGES ON*.*
+     TO  'D0001'@'localhost';
+
+--create admin user---
+
+CREATE USER'A001'@'localhost'
+     IDENTIFIED BY'admpwd';
+CREATE USER'A002'@'localhost'
+     IDENTIFIED BY'admpwd';
+CREATE USER'A003'@'localhost'
+     IDENTIFIED BY'admpwd';     
+CREATE USER'A004'@'localhost'
+     IDENTIFIED BY'admpwd';
+CREATE USER'A005'@'localhost'
+     IDENTIFIED BY'admpwd';     
+
+
+--give privilegs for admin--
+
+GRANT ALL PRIVILEGES ON*.*
+     TO  'A001'@'localhost'
+     WITH GRANT OPTION;
+
+GRANT ALL PRIVILEGES ON*.*
+     TO  'A002'@'localhost'
+     WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON*.*
+     TO  'A003'@'localhost'
+     WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON*.*
+     TO  'A004'@'localhost'
+     WITH GRANT OPTION; 
+GRANT ALL PRIVILEGES ON*.*
+     TO  'A005'@'localhost'
+     WITH GRANT OPTION;
+
+
+------ create user for Technical Officer ----
+
+CREATE USER'Tec_Off_01'@'localhost'
+     IDENTIFIED BY'tecpwd'; 
+CREATE USER'Tec_Off_02'@'localhost'
+     IDENTIFIED BY'tecpwd'; 
+CREATE USER'Tec_Off_04'@'localhost'
+     IDENTIFIED BY'tecpwd'; 
+CREATE USER'Tec_Off_07'@'localhost'
+     IDENTIFIED BY'tecpwd'; 
+CREATE USER'Tec_Off_09'@'localhost'
+     IDENTIFIED BY'tecpwd'; 
+
+---give privilege for technical officer----
+
+GRANT SELECT,INSERT,UPDATE  ON *.* TO'Tec_Off_01'@'localhost';
+GRANT SELECT,INSERT,UPDATE  ON *.* TO'Tec_Off_02'@'localhost';
+GRANT SELECT,INSERT,UPDATE  ON *.* TO'Tec_Off_04'@'localhost';
+GRANT SELECT,INSERT,UPDATE  ON *.* TO'Tec_Off_07'@'localhost';
+GRANT SELECT,INSERT,UPDATE  ON *.* TO'Tec_Off_09'@'localhost';

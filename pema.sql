@@ -254,14 +254,12 @@ INSERT INTO `Attendance` (`student_id`, `course_id`, `week_01`, `week_02`, `week
 
 ##   structure of student table
 
-CREATE TABLE IF NOT EXISTS student (
-    student_id CHAR(6) PRIMARY KEY,
-    NIC CHAR(12) UNIQUE,
-    name VARCHAR(30),
-    batch CHAR(4),
-    gender CHAR(1) CHECK (gender IN ('M', 'F')),
-    address VARCHAR(30),
-    contact CHAR(10)
+CREATE TABLE IF NOT EXISTS `student` (
+    `student_id` CHAR(6) PRIMARY KEY,
+    `NIC` CHAR(12) UNIQUE,
+    `name` VARCHAR(30),
+    `batch` CHAR(4),
+    `gender` CHAR(1) CHECK (`gender` IN ('M', 'F'))
 );
 
 
@@ -269,27 +267,38 @@ CREATE TABLE IF NOT EXISTS student (
 
 ## insert student table data
 
-INSERT INTO student(student_id, NIC, name, batch, gender, address, contact) VALUES
-('TG1062', '200127800625', 'Jamper', '2022', 'M', 'Jamper999@gmail.com', '761234654'),
-('TG1063', '200157800625', 'Kumar', '2022', 'M', 'otara87@gmail.com', '761234789'),
-('TG1064', '200130800025', 'Rohit', '2022', 'M', 'manodra@gmail.com', '761234678'),
-('TG1414', '200227900425', 'Karuvadu', '2022', 'M', 'rajapaksha@gmail.com', '761234565'),
-('TG1413', '200240800625', 'Rani', '2022', 'F', 'asmaakram2@gmail.com', '761234564'),
-('TG1345', '200127700625', 'Pampu', '2022', 'M', 'kanadipudayan@gmail.com', '718032400'),
-('TG1067', '200127800626', 'Shalini', '2022', 'F', 'shalini52@gmail.com', '761234567'),  -- Updated NIC for uniqueness
-('TG1415', '200127800565', 'Pema', '2022', 'M', 'pema00@gmail.com', '718032468'),
-('TG1417', '200127800800', 'Anpu', '2022', 'M', 'anpuSin@gmail.com', '761234573'),
-('TG1416', '200277889955', 'Dinesh', '2022', 'M', 'dinesh@gmail.com', '749900223'),
-('TG1418', '200212345678', 'Kaviya', '2022', 'F', 'kaviya@gmail.com', '788765432'),
-('TG1419', '200289765411', 'Dhanu', '2022', 'F', 'dhanu@gmail.com', '745432188'),
-('TG1420', '202289786756', 'Dharshi', '2022', 'F', 'dharshi@gmail.com', '751234509'),
-('TG1421', '200299666543', 'Thinesh', '2022', 'M', 'thinesh@gmail.com', '750987653'),
-('TG1422', '200278904321', 'Akram', '2022', 'M', 'akram@gmail.com', '764545456'),
-('TG1423', '200234567890', 'Thakshan', '2022', 'M', 'thak@gmail.com', '761234098'),
-('TG1424', '200287667887', 'Keerthan', '2022', 'M', 'keerthan@gmail.com', '789876588'),
-('TG1425', '200223450987', 'Madhu', '2022', 'F', 'madhu@gmail.com', '753456789'),
-('TG1426', '200212347890', 'Suba', '2022', 'F', 'suba@gmail.com', '747474745'),
-('TG1427', '200298769876', 'Praveen', '2022', 'M', 'praveen@gmail.com', '757698089');
+-- Create a new student table without address field
+CREATE TABLE IF NOT EXISTS `student` (
+    `student_id` CHAR(6) PRIMARY KEY,
+    `NIC` CHAR(12) UNIQUE,
+    `name` VARCHAR(30),
+    `batch` CHAR(4),
+    `gender` CHAR(1) CHECK (`gender` IN ('M', 'F'))
+);
+
+-- Insert data into the new student table
+INSERT INTO `student` (`student_id`, `NIC`, `name`, `batch`, `gender`) VALUES
+('TG1062', '200127800625', 'Jamper', '2022', 'M'),
+('TG1063', '200157800625', 'Kumar', '2022', 'M'),
+('TG1064', '200130800025', 'Rohit', '2022', 'M'),
+('TG1414', '200227900425', 'Karuvadu', '2022', 'M'),
+('TG1413', '200240800625', 'Rani', '2022', 'F'),
+('TG1345', '200127700625', 'Pampu', '2022', 'M'),
+('TG1067', '200127800626', 'Shalini', '2022', 'F'),
+('TG1415', '200127800565', 'Pema', '2022', 'M'),
+('TG1417', '200127800800', 'Anpu', '2022', 'M'),
+('TG1416', '200277889955', 'Dinesh', '2022', 'M'),
+('TG1418', '200212345678', 'Kaviya', '2022', 'F'),
+('TG1419', '200289765411', 'Dhanu', '2022', 'F'),
+('TG1420', '202289786756', 'Dharshi', '2022', 'F'),
+('TG1421', '200299666543', 'Thinesh', '2022', 'M'),
+('TG1422', '200278904321', 'Akram', '2022', 'M'),
+('TG1423', '200234567890', 'Thakshan', '2022', 'M'),
+('TG1424', '200287667887', 'Keerthan', '2022', 'M'),
+('TG1425', '200223450987', 'Madhu', '2022', 'F'),
+('TG1426', '200212347890', 'Suba', '2022', 'F'),
+('TG1427', '200298769876', 'Praveen', '2022', 'M');
+
 ## end
 
 
@@ -298,38 +307,38 @@ INSERT INTO student(student_id, NIC, name, batch, gender, address, contact) VALU
 -- technical offcer structure 
 
 CREATE TABLE IF NOT EXISTS `Technical_Officer` (
-    `Technical_ID` CHAR(10) PRIMARY KEY,
-    `Name` VARCHAR(50),
-    `Contact` VARCHAR(15)
+    `Technical_ID` CHAR(10), -- Increase size to accommodate longer IDs
+    `NIC` CHAR(12),
+    `Name` VARCHAR(50)
 );
 
 -- technical officer data 
 
 
-INSERT INTO `Technical_Officer` (`Technical_ID`, `Name`, `Contact`) VALUES
-('Tec_Off_01', 'Kavindi', '769870000'),
-('Tec_Off_02', 'Raja', '755566799'),
-('Tec_Off_04', 'Kamal', '760987654'),
-('Tec_Off_07', 'Vihanga', '760000987'),
-('Tec_Off_09', 'Mithu', '756677665');
+INSERT INTO `Technical_Officer` (`Technical_ID`, `NIC`, `Name`) VALUES
+('Tec_Off_01', '199012345678', 'Kavindi'),
+('Tec_Off_02', '199109876543', 'Raja'),
+('Tec_Off_04', '198956788765', 'Kamal'),
+('Tec_Off_07', '198809877890', 'Vihanga'),
+('Tec_Off_09', '199576547654', 'Mithu');
+
 
 
 -- dean table stucture 
 
-CREATE TABLE IF NOT EXISTS`Dean` (
-  `dean_id` VARCHAR(8) NOT NULL,
-  `start_date` DATE NOT NULL,
-  `dean_user_id` INT NOT NULL,
-  PRIMARY KEY (`dean_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE IF NOT EXISTS `Dean` (
+    `dean_id` CHAR(5) PRIMARY KEY,  
+    `NIC` CHAR(12) UNIQUE,          
+    `Name` VARCHAR(50),              
+    `start_date` DATE                 
+);
 
 
 
 -- dean table data 
 
-INSERT INTO `Dean` (`dean_id`, `start_date`, `dean_user_id`) VALUES
-('D0001', '2017-01-01', 1),
-('D0002', '2023-01-01', 16);
+INSERT INTO `Dean` (`dean_id`, `NIC`, `Name`, `start_date`) VALUES
+('D0001', '198009809877', 'Praveen Kanth', '2017-01-01');
 
 
 ##  `Course_Registration` table structure
@@ -627,19 +636,18 @@ IINSERT INTO `Exam_Registration` (`Student_ID`, `Course_Code`, `Status`) VALUES
 ###  ##  `admin` table structure
 	
 CREATE TABLE IF NOT EXISTS `Admin` (
-    `Admin_ID` CHAR(5),
-    `Name` VARCHAR(50),
-    `Contact` CHAR(10)
+    `Admin_ID` CHAR(5) PRIMARY KEY,  -- Admin ID
+    `Name` VARCHAR(50)                -- Name of the Admin
 );
 
 -- Insert records into  `admin`
 
-INSERT INTO `Admin` VALUES
-('A001','Suman','719877898'),
-('A002','Gamage','765677655'),
-('A003','Nilan','754455660'),
-('A004','Nikmal','779988776'),
-('A005','Namal','751237778');
+INSERT INTO `Admin` (`Admin_ID`, `Name`) VALUES
+('A001', 'Suman'),
+('A002', 'Gamage'),
+('A003', 'Nilan'),
+('A004', 'Nikmal'),
+('A005', 'Namal');
 
 ## end 
 
