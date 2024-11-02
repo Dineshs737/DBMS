@@ -384,3 +384,52 @@ INSERT INTO ICT12101_course_marks  (student_id, quiz_1, quiz_2, quiz_3,inclass_t
 ('TG1425',67.00, 90.70, 68.50, 76.00, 85.00, 78.00),
 ('TG1426', 90.00, 90.00, 80.00, 80.00, 75.00, 94.00),
 ('TG1427', 70.00, 80.00, 60.00, 70.00, 60.00, 73.00);
+
+
+
+ 
+
+CREATE USER'TG1062'@'localhost'
+     IDENTIFIED BY'stupwd';
+
+CREATE USER'TG1063'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1064'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1414'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1413'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1345'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1067'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1415'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1417'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1416'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1418'@'localhost'
+     IDENTIFIED BY'stupwd';
+
+CREATE USER'TG1419'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1420'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1421'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1423'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1424'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1425'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1426'@'localhost'
+     IDENTIFIED BY'stupwd';
+CREATE USER'TG1427'@'localhost'
+     IDENTIFIED BY'stupwd';
+
+
+     
+        
