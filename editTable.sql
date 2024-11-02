@@ -38,7 +38,7 @@ Address varchar(100));
 
 
 
-INSERT INTO lecturer VALUES
+INSERT INTO lecturer(lecturer_ID,NIC,Subject,Name ,Address) VALUES
 ('L001','198812332111','Database Management System','Mr.Aayansh','123 Main Street, Colombo 07'),
 ('L002','197798788855','Computer Architecture','Miss.Kavindi','45 Galle Road, Mount Lavinia'),
 ('L003','197800099988','Computer Networks','Miss.Nadeesha','No. 5, Kandy Road, Nugegoda'),
@@ -54,6 +54,7 @@ INSERT INTO lecturer VALUES
 CREATE TABLE Dean (
   dean_id varchar(8) NOT NULL,
   NIC CHAR (12),
+  Name CHAR (20),
   start_date  date NOT NULL,
   dean_user_id int(9) NOT NULL
  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci);
@@ -62,7 +63,7 @@ CREATE TABLE Dean (
 
 
 INSERT INTO Dean ('dean_id','NIC', 'start_date', 'dean_user_id') VALUES
-('D0001','198009809877', '2017-01-01', 1),
-('D0002','197278998766', '2023-01-01', 16);
+('D0001','198009809877','Praveen kanth', '2017-01-01', 1),
+('D0002','197278998766','Thinesh' '2023-01-01', 16);
 
 
