@@ -1,29 +1,4 @@
-
--- lechure table structure
-
-CREATE TABLE Lecturer(
-lecturer_ID CHAR(5) PRIMARY KEY,
-Cource_id   CHAR(8),
-Name  varchar(30),
-Address varchar(100));
-
-
--- data of the table
-
-INSERT INTO Lecturer VALUES
-('L001','ICT1213','Mr.Aayansh',"123 Main Street, Colombo 07"),
-('L002','ICT1222','Miss.Kavindi','45 Galle Road, Mount Lavinia'),
-('L003','ICT1233','Miss.Nadeesha','No. 5, Kandy Road, Nugegoda'),
-('L004','ICT1242','mr.Tharindu','78, Church Street, Negombo'),
-('L005','ICT1253','Miss.Ishara','34, Peradeniya Road, Kandy'),
-('L006','ICT1261','Mr.Lakal','10, Kottawa Junction, Piliyandala'),
-('L007','ICT1271','mr.Ruwan','56, Gampaha Road, Kelaniya'),
-('L008','ICT1283','Mr.Nishan',"thadchanamaruthamaadhu mannar"),
-('L009','ICT1293','Miss.Shaneeka','22, High Street, Jaffna'),
-('L010','ICT12101','Ms.Kusum','88, Baduwatta, Galle');
---- attendance table structure
-
-CREATE TABLE `Attendance` (
+CREATE TABLE IF NOT EXISTS `Attendance` (
   `student_id` varchar(10) NOT NULL,
   `course_id` varchar(10) NOT NULL,
   `week_01` varchar(2) DEFAULT NULL,
@@ -248,97 +223,6 @@ INSERT INTO `Attendance` (`student_id`, `course_id`, `week_01`, `week_02`, `week
 ('TG1427', 'ICT1283', '1', '1', 'MC', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'AB', '1', '1'),
 ('TG1427', 'ICT1293', '1', '1', 'AB', '1', '1', 'AB', '1', 'AB', '1', 'AB', '1', '1', 'AB', '1', 'MC'),
 ('TG1427', 'ICT12102', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'AB', '1', '1', 'AB', '1', 'MC');
-
-
-
-
-##   structure of student table
-
-CREATE TABLE IF NOT EXISTS `student` (
-    `student_id` CHAR(6) PRIMARY KEY,
-    `NIC` CHAR(12) UNIQUE,
-    `name` VARCHAR(30),
-    `batch` CHAR(4),
-    `gender` CHAR(1) CHECK (`gender` IN ('M', 'F'))
-);
-
-
--- student table data 
-
-## insert student table data
-
--- Create a new student table without address field
-CREATE TABLE IF NOT EXISTS `student` (
-    `student_id` CHAR(6) PRIMARY KEY,
-    `NIC` CHAR(12) UNIQUE,
-    `name` VARCHAR(30),
-    `batch` CHAR(4),
-    `gender` CHAR(1) CHECK (`gender` IN ('M', 'F'))
-);
-
--- Insert data into the new student table
-INSERT INTO `student` (`student_id`, `NIC`, `name`, `batch`, `gender`) VALUES
-('TG1062', '200127800625', 'Jamper', '2022', 'M'),
-('TG1063', '200157800625', 'Kumar', '2022', 'M'),
-('TG1064', '200130800025', 'Rohit', '2022', 'M'),
-('TG1414', '200227900425', 'Karuvadu', '2022', 'M'),
-('TG1413', '200240800625', 'Rani', '2022', 'F'),
-('TG1345', '200127700625', 'Pampu', '2022', 'M'),
-('TG1067', '200127800626', 'Shalini', '2022', 'F'),
-('TG1415', '200127800565', 'Pema', '2022', 'M'),
-('TG1417', '200127800800', 'Anpu', '2022', 'M'),
-('TG1416', '200277889955', 'Dinesh', '2022', 'M'),
-('TG1418', '200212345678', 'Kaviya', '2022', 'F'),
-('TG1419', '200289765411', 'Dhanu', '2022', 'F'),
-('TG1420', '202289786756', 'Dharshi', '2022', 'F'),
-('TG1421', '200299666543', 'Thinesh', '2022', 'M'),
-('TG1422', '200278904321', 'Akram', '2022', 'M'),
-('TG1423', '200234567890', 'Thakshan', '2022', 'M'),
-('TG1424', '200287667887', 'Keerthan', '2022', 'M'),
-('TG1425', '200223450987', 'Madhu', '2022', 'F'),
-('TG1426', '200212347890', 'Suba', '2022', 'F'),
-('TG1427', '200298769876', 'Praveen', '2022', 'M');
-
-## end
-
-
-
-
--- technical offcer structure 
-
-CREATE TABLE IF NOT EXISTS `Technical_Officer` (
-    `Technical_ID` CHAR(10), -- Increase size to accommodate longer IDs
-    `NIC` CHAR(12),
-    `Name` VARCHAR(50)
-);
-
--- technical officer data 
-
-
-INSERT INTO `Technical_Officer` (`Technical_ID`, `NIC`, `Name`) VALUES
-('Tec_Off_01', '199012345678', 'Kavindi'),
-('Tec_Off_02', '199109876543', 'Raja'),
-('Tec_Off_04', '198956788765', 'Kamal'),
-('Tec_Off_07', '198809877890', 'Vihanga'),
-('Tec_Off_09', '199576547654', 'Mithu');
-
-
-
--- dean table stucture 
-
-CREATE TABLE IF NOT EXISTS `Dean` (
-    `dean_id` CHAR(5) PRIMARY KEY,  
-    `NIC` CHAR(12) UNIQUE,          
-    `Name` VARCHAR(50),              
-    `start_date` DATE                 
-);
-
-
-
--- dean table data 
-
-INSERT INTO `Dean` (`dean_id`, `NIC`, `Name`, `start_date`) VALUES
-('D0001', '198009809877', 'Praveen Kanth', '2017-01-01');
 
 
 ##  `Course_Registration` table structure
@@ -631,25 +515,6 @@ IINSERT INTO `Exam_Registration` (`Student_ID`, `Course_Code`, `Status`) VALUES
 ('TG1420', 'ICT12102', 'Conform');
 
 ## end ## 
-
-
-###  ##  `admin` table structure
-	
-CREATE TABLE IF NOT EXISTS `Admin` (
-    `Admin_ID` CHAR(5) PRIMARY KEY,  -- Admin ID
-    `Name` VARCHAR(50)                -- Name of the Admin
-);
-
--- Insert records into  `admin`
-
-INSERT INTO `Admin` (`Admin_ID`, `Name`) VALUES
-('A001', 'Suman'),
-('A002', 'Gamage'),
-('A003', 'Nilan'),
-('A004', 'Nikmal'),
-('A005', 'Namal');
-
-## end 
 
 
 ###  ## `Examination` table structure
