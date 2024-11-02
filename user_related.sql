@@ -66,18 +66,20 @@ INSERT INTO `dean` (`dean_id`, `NIC`, `name`, `start_date`) VALUES
 ###  ##  `admin` table structure
 	
 CREATE TABLE IF NOT EXISTS `admin` (
-    `Admin_ID` CHAR(5) PRIMARY KEY,  -- Admin ID
+    `Admin_ID` CHAR(5) PRIMARY KEY,-- Admin ID
+    `NIC` CHAR(12) NOT NULL,
     `name` VARCHAR(50)                -- Name of the Admin
 );
 
+
 ## Insert data into  `admin` table
 ##SART
-INSERT INTO `admin` (`admin_ID`, `name`) VALUES
-('A001', 'Suman'),
-('A002', 'Gamage'),
-('A003', 'Nilan'),
-('A004', 'Nikmal'),
-('A005', 'Namal');
+INSERT INTO `admin` (`admin_ID`,`NIC`, `name`) VALUES
+('A001','198366114466','Suman'),
+('A002','197899556644','Gamage'),
+('A003','199600987656','Nilan'),
+('A004','199500456789' ,'Nikmal'),
+('A005','198755678908' ,'Namal');
 
 ##END
 
