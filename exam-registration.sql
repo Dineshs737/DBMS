@@ -1,46 +1,17 @@
-
-##  `cource` table structure
-##SART
-CREATE TABLE IF NOT EXISTS  `course` (`course_id` CHAR(8) PRIMARY KEY ,
-`name` VARCHAR(100),
-`credit` INT ,
-`week` VARCHAR(20)
+##  `exam_registration` table structure
+##SART 
+CREATE TABLE IF NOT EXISTS `exam_registration` (
+  `student_id` CHAR(6) NOT NULL,
+  `course_code` CHAR(8) NOT NULL, -- Adjusted size to accommodate longer course codes
+  `status` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`student_id`, `course_code`) -- Set composite primary key
 );
 ##END
 
-## `cource` user data insert
-INSERT INTO `course`(`course_id`,`name`,`credit`,`week`) VALUES
-('ICT1213', 'Database_management_system', 3, '15'),
-('ICT1222', 'computer_rchitecture', 2, '15'), 
-('ICT1233', 'Computer_network', 3, '15'),  
-('ICT1242', 'Server_side_web_development', 2, '15'),  
-('ICT1253', 'Computer_programing', 3, '15'),  
-('ICT1261', 'Muiltimedia_technology', 1, '15'),  
-('ICT1271', 'Fundamendal_of_IS', 1, '15'),  
-('ICT1283', 'Web_technology', 3, '15'),  
-('ICT1293', 'Artificial_inteligence', 3, '15'),  
-('ICT12101', 'Software_engineering', 2, '15');
-
-
-
-
-
-
-
-
-##  `course_registration` table structure
-
-CREATE TABLE IF NOT EXISTS `course_registration` (
-  `student_id` CHAR(6),
-  `course_code` CHAR(8),
-  `status` VARCHAR(10),
-  PRIMARY KEY (`student_id`, `course_code`)
-);
-
-## `course_registration` user data insert
-##SART
-INSERT INTO `course_registration` (`student_id`, `course_code`, `status`) VALUES
+## `exam_registration` user data insert
+INSERT INTO `exam_registration` (`student_id`, `course_code`, `status`) VALUES
 -- TG1062 Registrations
+
 ('TG1062', 'ICT1213', 'Conform'),
 ('TG1062', 'ICT1222', 'Conform'),
 ('TG1062', 'ICT1233', 'Conform'),
@@ -196,7 +167,6 @@ INSERT INTO `course_registration` (`student_id`, `course_code`, `status`) VALUES
 ('TG1420', 'ICT1293', 'Conform'),
 ('TG1420', 'ICT12101', 'Conform'),
 
--- TG1421 Registrations
 ('TG1421', 'ICT1213', 'Conform'),
 ('TG1421', 'ICT1222', 'Conform'),
 ('TG1421', 'ICT1233', 'Conform'),
@@ -279,7 +249,3 @@ INSERT INTO `course_registration` (`student_id`, `course_code`, `status`) VALUES
 ('TG1427', 'ICT1283', 'Conform'),
 ('TG1427', 'ICT1293', 'Conform'),
 ('TG1427', 'ICT12101', 'Conform');
-
-##END
-
-
