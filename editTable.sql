@@ -63,7 +63,6 @@ CREATE TABLE Dean (
 
 
 INSERT INTO Dean ('dean_id','NIC', 'start_date', 'dean_user_id') VALUES
-('D0001','198009809877','Praveen kanth', '2017-01-01', 1),
-('D0002','197278998766','Thinesh' '2023-01-01', 16);
+('D0001','198009809877','Praveen kanth', '2017-01-01', 1);
 
 

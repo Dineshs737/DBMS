@@ -28,7 +28,7 @@ INSERT INTO `lecturer` (`lecturer_ID`, `NIC`, `subject`, `name`, `address`) VALU
 ## `Technical_Officer` structure 
 
 CREATE TABLE IF NOT EXISTS `technical_Officer` (
-    `technical_ID` CHAR(10), -- Increase size to accommodate longer IDs
+    `technical_ID` CHAR(10) PRIMARY KEY, -- Increase size to accommodate longer IDs
     `NIC` CHAR(12),
     `name` VARCHAR(50)
 );
@@ -75,12 +75,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 ## Insert data into  `admin` table
 ##SART
 INSERT INTO `admin` (`admin_ID`,`NIC`, `name`) VALUES
-('A001','198366114466','Suman'),
-('A002','197899556644','Gamage'),
-('A003','199600987656','Nilan'),
-('A004','199500456789' ,'Nikmal'),
-('A005','198755678908' ,'Namal');
-
+('A001','198366114466','Suman');
 ##END
 
 
@@ -92,6 +87,8 @@ CREATE TABLE IF NOT EXISTS `student` (
     `batch` CHAR(4),
     `gender` CHAR(1) CHECK (`gender` IN ('M', 'F'))
 );
+
+
 
 ## Insert data into  `student` table
 ##SART
@@ -115,10 +112,14 @@ INSERT INTO `student` (`student_id`, `NIC`, `name`, `batch`, `gender`) VALUES
 ('TG1424', '200287667887', 'Keerthan', '2022', 'M'),
 ('TG1425', '200223450987', 'Madhu', '2022', 'F'),
 ('TG1426', '200212347890', 'Suba', '2022', 'F'),
-('TG1427', '200298769876', 'Praveen', '2022', 'M');
-
-## end
+('TG1427', '200298769876', 'Praveen', '2022', 'M'); -- Changed NIC to a unique value
 
 
 
-
+##              student  repeat  data            ##
+('TG901','200198769876','Sajeeya','2021','F'),
+('TG997','200112347890','Asma','2021','F'),
+('TG998','200134567890','Umesha','2021','F'),
+('TG999','200177889955','Danith','2021','M'),
+('TG1002','200130800126','Dasun','2021','M');
+##END

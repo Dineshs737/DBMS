@@ -39,11 +39,17 @@ INSERT INTO `user` (`NIC`, `email`, `role`, `contact_no`, `password`) VALUES
     ('200287667887', 'keerthan@gmail.com', 'Student', '789876588', 'hZ1mK7jF2cN4'),
     ('200223450987', 'madhu@gmail.com', 'Student', '753456789', 'nA3pT8bF1kR6'),
     ('200212347890', 'suba@gmail.com', 'Student', '747474745', 'tR6kB1nD3fW5'),
-    ('200298769876', 'praveen@gmail.com', 'Student', '757698089', 'qL2gF9pB4hK8');
+    ('200298769876', 'praveen@gmail.com', 'Student', '757698089', 'qL2gF9pB4hK8'),
+    ('200198769876','Sajeeya@gmail.com','Student','718562347','e9f8b28be27a'),
+    ('200112347890','Asma@gmail.com','Student','768534547','3aabbb98c53a'),
+    ('200134567890','Umesha@gmail.com','Student','775340058','a1a38ae21b71'),
+    ('200177889955','Danith@gmail.com','Student','718032400','00f7225b7be5'),
+    ('200130800126','Dasun@gmail.com','Student','761234687','7360409d967a'),
+
+
+
 
     ## END
-
-
 ## Technical_officer user data insert
 
 ##SART
@@ -60,11 +66,7 @@ INSERT INTO `user` (`NIC`, `email`, `role`, `contact_no`, `password`) VALUES
 
 ## SART
 INSERT INTO `user` (`NIC`, `email`, `role`, `contact_no`, `password`)VALUES
-    ('198366114466', 'suman@gmail.com', 'Admin', '719877898', 'yH7qR5dX3kF2'),
-    ('197899556644', 'gamage@gmail.com', 'Admin', '765677655', 'jT1fA8kL0mP9'),
-    ('199600987656', 'nilan@gmail.com', 'Admin', '754455660', 'tR3nE2yF5hJ8'),
-    ('199500456789', 'nikmal@gmail.com', 'Admin', '779988776', 'fG4mW8tN1kS3'),
-    ('198755678908', 'namal@gmail.com', 'Admin', '751237778', 'qW2zH6eF9pD1');
+    ('198366114466', 'suman@gmail.com', 'Admin', '719877898', 'yH7qR5dX3kF2');
 ##END
 
 ## Lecturer user data insert
@@ -89,6 +91,6 @@ INSERT INTO `user` (`NIC`, `email`, `role`, `contact_no`, `password`) VALUES
 ##SART
 
 INSERT INTO `user` (`NIC`, `email`, `role`, `contact_no`, `password`) VALUES
-    ('198009809877', 'praveen.kanth@gmail.com', 'Dean', '0712345678', '4f3b8a1e2c3d');
+    ('198009809877', 'praveenkanth@gmail.com', 'Dean', '0712345678', '4f3b8a1e2c3d');
 ##END
 
