@@ -441,3 +441,547 @@ INSERT INTO ICT12101_course_marks (student_id, quiz_1, quiz_2, quiz_3, inclass_t
 
 
 
+CREATE TABLE IF NOT EXISTS `student_grade` (
+  `student_id` char(6) NOT NULL,
+  `course_id` char(8) NOT NULL,
+  `final_marks` decimal(5,2) NOT NULL,
+  `grade` varchar(5) GENERATED ALWAYS AS (
+    (CASE 
+      WHEN (`final_marks` < 0) THEN 'MC' 
+      WHEN (`final_marks` >= 90) THEN 'A+' 
+      WHEN (`final_marks` >= 85) THEN 'A' 
+      WHEN (`final_marks` >= 80) THEN 'A-' 
+      WHEN (`final_marks` >= 75) THEN 'B+' 
+      WHEN (`final_marks` >= 70) THEN 'B' 
+      WHEN (`final_marks` >= 65) THEN 'B-' 
+      WHEN (`final_marks` >= 60) THEN 'C+' 
+      WHEN (`final_marks` >= 55) THEN 'C' 
+      WHEN (`final_marks` >= 50) THEN 'C-' 
+      WHEN (`final_marks` >= 45) THEN 'D' 
+      ELSE 'E' 
+    END)
+  ) VIRTUAL,
+  `SGPA` decimal(3,2) GENERATED ALWAYS AS (
+    (CASE 
+      WHEN (`grade` = 'A+' OR `grade` = 'A') THEN 4.00 
+      WHEN (`grade` = 'A-') THEN 3.70 
+      WHEN (`grade` = 'B+') THEN 3.30 
+      WHEN (`grade` = 'B') THEN 3.00 
+      WHEN (`grade` = 'B-') THEN 2.70 
+      WHEN (`grade` = 'C+') THEN 2.30 
+      WHEN (`grade` = 'C') THEN 2.00 
+      WHEN (`grade` = 'C-') THEN 1.70 
+      WHEN (`grade` = 'D') THEN 1.00 
+      WHEN (`grade` = 'E') THEN 0.00 
+    END)
+  ) 
+##KEY `student_id` (`student_id`),
+ ## KEY `course_id` (`course_id`),
+ ## CONSTRAINT `student_grade_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`),
+ ## CONSTRAINT `student_grade_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`)  -- Changed couId to course_id
+) ##ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+DROP PROCEDURE InsertStudentGrades_ICT1213
+DELIMITER //
+
+
+## GET VALUE FROM  ICT1213_course_marks table
+##SART
+
+CREATE PROCEDURE InsertStudentGrades_ICT1213()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE student_id_char CHAR(6);
+    DECLARE final_marks_value DECIMAL(5,2);
+
+    DECLARE student_cursor CURSOR FOR 
+        SELECT student_id, final_marks FROM ICT1213_course_marks;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN student_cursor;
+
+    read_loop: LOOP
+        FETCH student_cursor INTO student_id_char, final_marks_value;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        INSERT INTO student_grade (student_id, course_id, final_marks)
+        VALUES (student_id_char, 'ICT1213', final_marks_value);
+    END LOOP;
+
+    CLOSE student_cursor;
+END //
+
+##END
+
+## GET VALUE FROM  ICT1222_course_marks table
+DELIMITER //
+CREATE PROCEDURE InsertStudentGrades_ICT1222()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE student_id_char CHAR(6);
+    DECLARE final_marks_value DECIMAL(5,2);
+
+    DECLARE student_cursor CURSOR FOR 
+        SELECT student_id, final_marks FROM ICT1222_course_marks;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN student_cursor;
+
+    read_loop: LOOP
+        FETCH student_cursor INTO student_id_char, final_marks_value;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        INSERT INTO student_grade (student_id, course_id, final_marks)
+        VALUES (student_id_char, 'ICT1222', final_marks_value);
+    END LOOP;
+
+    CLOSE student_cursor;
+END //
+
+
+##   GET VALUE FROM  ICT1233_course_marks table
+
+DELIMITER //
+CREATE PROCEDURE InsertStudentGrades_ICT1233()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE student_id_char CHAR(6);
+    DECLARE final_marks_value DECIMAL(5,2);
+
+    DECLARE student_cursor CURSOR FOR 
+        SELECT student_id, final_marks FROM ICT1233_course_marks;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN student_cursor;
+
+    read_loop: LOOP
+        FETCH student_cursor INTO student_id_char, final_marks_value;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        INSERT INTO student_grade (student_id, course_id, final_marks)
+        VALUES (student_id_char, 'ICT1233', final_marks_value);
+    END LOOP;
+
+    CLOSE student_cursor;
+END //
+
+
+
+
+##   GET VALUE FROM  ICT1242_course_marks table
+
+DELIMITER //
+CREATE PROCEDURE InsertStudentGrades_ICT1242()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE student_id_char CHAR(6);
+    DECLARE final_marks_value DECIMAL(5,2);
+
+    DECLARE student_cursor CURSOR FOR 
+        SELECT student_id, final_marks FROM ICT1242_course_marks;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN student_cursor;
+
+    read_loop: LOOP
+        FETCH student_cursor INTO student_id_char, final_marks_value;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        INSERT INTO student_grade (student_id, course_id, final_marks)
+        VALUES (student_id_char, 'ICT1242', final_marks_value);
+    END LOOP;
+
+    CLOSE student_cursor;
+END //
+
+
+
+
+
+##   GET VALUE FROM  ICT1253_course_marks table
+
+DELIMITER //
+CREATE PROCEDURE InsertStudentGrades_ICT1253()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE student_id_char CHAR(6);
+    DECLARE final_marks_value DECIMAL(5,2);
+
+    DECLARE student_cursor CURSOR FOR 
+        SELECT student_id, final_marks FROM ICT1253_course_marks;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN student_cursor;
+
+    read_loop: LOOP
+        FETCH student_cursor INTO student_id_char, final_marks_value;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        INSERT INTO student_grade (student_id, course_id, final_marks)
+        VALUES (student_id_char, 'ICT1253', final_marks_value);
+    END LOOP;
+
+    CLOSE student_cursor;
+END //
+
+
+
+##   GET VALUE FROM  ICT1261_course_marks table
+
+DELIMITER //
+CREATE PROCEDURE InsertStudentGrades_ICT1261()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE student_id_char CHAR(6);
+    DECLARE final_marks_value DECIMAL(5,2);
+
+    DECLARE student_cursor CURSOR FOR 
+        SELECT student_id, final_marks FROM ICT1261_course_marks;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN student_cursor;
+
+    read_loop: LOOP
+        FETCH student_cursor INTO student_id_char, final_marks_value;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        INSERT INTO student_grade (student_id, course_id, final_marks)
+        VALUES (student_id_char, 'ICT1261', final_marks_value);
+    END LOOP;
+
+    CLOSE student_cursor;
+END //
+
+
+
+
+##   GET VALUE FROM  ICT1293_course_marks table
+
+DELIMITER //
+CREATE PROCEDURE InsertStudentGrades_ICT1293()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE student_id_char CHAR(6);
+    DECLARE final_marks_value DECIMAL(5,2);
+
+    DECLARE student_cursor CURSOR FOR 
+        SELECT student_id, final_marks FROM ICT1293_course_marks;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN student_cursor;
+
+    read_loop: LOOP
+        FETCH student_cursor INTO student_id_char, final_marks_value;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        INSERT INTO student_grade (student_id, course_id, final_marks)
+        VALUES (student_id_char, 'ICT1293', final_marks_value);
+    END LOOP;
+
+    CLOSE student_cursor;
+END //
+
+
+
+##   GET VALUE FROM  ICT1283_course_marks  table
+
+DELIMITER //
+CREATE PROCEDURE InsertStudentGrades_ICT1283()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE student_id_char CHAR(6);
+    DECLARE final_marks_value DECIMAL(5,2);
+
+    DECLARE student_cursor CURSOR FOR 
+        SELECT student_id, final_marks FROM ICT1283_course_marks;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN student_cursor;
+
+    read_loop: LOOP
+        FETCH student_cursor INTO student_id_char, final_marks_value;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        INSERT INTO student_grade (student_id, course_id, final_marks)
+        VALUES (student_id_char, 'ICT1283', final_marks_value);
+    END LOOP;
+
+    CLOSE student_cursor;
+END //
+
+
+
+##   GET VALUE FROM  ICT1271_course_marks  table
+
+DELIMITER //
+CREATE PROCEDURE InsertStudentGrades_ICT1271()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE student_id_char CHAR(6);
+    DECLARE final_marks_value DECIMAL(5,2);
+
+    DECLARE student_cursor CURSOR FOR 
+        SELECT student_id, final_marks FROM ICT1271_course_marks;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN student_cursor;
+
+    read_loop: LOOP
+        FETCH student_cursor INTO student_id_char, final_marks_value;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        INSERT INTO student_grade (student_id, course_id, final_marks)
+        VALUES (student_id_char, 'ICT1271', final_marks_value);
+    END LOOP;
+
+    CLOSE student_cursor;
+END //
+
+
+
+
+##   GET VALUE FROM  ICT12101_course_marks  table
+
+DELIMITER //
+CREATE PROCEDURE InsertStudentGrades_ICT12101()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE student_id_char CHAR(6);
+    DECLARE final_marks_value DECIMAL(5,2);
+
+    DECLARE student_cursor CURSOR FOR 
+        SELECT student_id, final_marks FROM ICT12101_course_marks;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN student_cursor;
+
+    read_loop: LOOP
+        FETCH student_cursor INTO student_id_char, final_marks_value;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        INSERT INTO student_grade (student_id, course_id, final_marks)
+        VALUES (student_id_char, 'ICT12101', final_marks_value);
+    END LOOP;
+
+    CLOSE student_cursor;
+END //
+
+
+
+
+
+
+CALL InsertStudentGrades_ICT1213();
+CALL InsertStudentGrades_ICT1222();
+CALL InsertStudentGrades_ICT1233();
+CALL IInsertStudentGrades_ICT1242();
+CALL InsertStudentGrades_ICT1253()
+CALL InsertStudentGrades_ICT1261()
+CALL InsertStudentGrades_ICT1293()
+CALL InsertStudentGrades_ICT1283()
+CALL InsertStudentGrades_ICT1271()
+CALL InsertStudentGrades_ICT12101();
+
+
+
+
+
+
+ALTER TABLE `student_grade`
+MODIFY COLUMN `student_id` CHAR(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+
+ALTER TABLE `student_grade`
+MODIFY COLUMN `course_id` CHAR(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `student_grade`
+ADD CONSTRAINT `fk_course_gread_student`
+FOREIGN KEY (`student_id`) REFERENCES `student`(`student_id`);
+
+
+
+
+
+
+
+
+CREATE TABLE Student_Performance (
+    student_id VARCHAR(12) NOT NULL,
+    semester_no INT,
+    SGPA DECIMAL(3,2),
+    CGPA DECIMAL(3,2),
+    GPA DECIMAL(3,2),
+    PRIMARY KEY (student_id, semester_no)
+);
+
+
+##SET SGPA for Student_Performance table ##
+INSERT INTO Student_Performance (student_id, semester_no,SGPA, CGPA, GPA)
+SELECT
+    sg.student_id,
+    1 AS semester_no,
+    (SUM(c.`credit` * CASE
+        WHEN sg.Final_marks >= 90 THEN 4.00
+        WHEN sg.Final_marks >= 85 THEN 3.70
+        WHEN sg.Final_marks >= 80 THEN 3.30
+        WHEN sg.Final_marks >= 75 THEN 3.00
+        WHEN sg.Final_marks >= 70 THEN 2.70
+        WHEN sg.Final_marks >= 65 THEN 2.30
+        WHEN sg.Final_marks >= 60 THEN 2.00
+        WHEN sg.Final_marks >= 55 THEN 1.70
+        WHEN sg.Final_marks >= 50 THEN 1.30
+        WHEN sg.Final_marks >= 45 THEN 1.00
+        ELSE 0.00
+    END) / NULLIF(SUM(c.`credit`), 0)) AS SGPA,
+    NULL AS CGPA,
+    NULL AS GPA
+FROM
+    `student_grade` AS sg
+JOIN
+    `course` AS c ON sg.`course_id` = c.`course_id`
+GROUP BY
+    sg.`student_id`;
+
+
+
+## upadte CGPA of  Student_Performance table 
+UPDATE Student_Performance AS sp
+JOIN (
+    SELECT
+        student_id,
+        AVG(SGPA) AS Avg_CGPA
+    FROM
+        Student_Performance
+    GROUP BY
+        student_id
+) AS avg_cgpa ON sp.student_id = avg_cgpa.student_id
+SET sp.CGPA = avg_cgpa.Avg_CGPA;
+
+## END
+
+## 
+## upadte GPA of  Student_Performance table 
+##SART
+UPDATE Student_Performance sp
+JOIN (
+    SELECT 
+        student_id,
+        AVG(SGPA) AS avg_full_sgpa
+    FROM 
+        Student_Performance
+    GROUP BY 
+        student_id
+) AS avg_sp ON sp.student_id = avg_sp.student_id
+SET sp.GPA = avg_sp.avg_full_sgpa;
+
+##END
+
+
+
+ DELIMITER //
+CREATE PROCEDURE VIEW_STUDENT_GRADES_AS_BATCH(IN batch CHAR(4))
+BEGIN
+    SELECT sg.*
+    FROM `student_grade` sg
+    JOIN `student` s ON sg.`student_id` = s.`student_id`
+    WHERE s.`batch` = batch;
+END //
+DELIMITER ;
+
+## get proper student grads
+CALL VIEW_STUDENT_GRADES_AS_BATCH('2022');
+
+
+## get repeat student grads
+CALL VIEW_STUDENT_GRADES_AS_BATCH('2022');
+
+
+#### get GetStudentDetailsByBatch  student grads AND detalis
+
+CREATE PROCEDURE GetStudentDetailsByBatch(
+    IN batch CHAR(4)
+)
+BEGIN
+    SELECT 
+        S.student_id,
+        S.name AS StudentName,
+        COALESCE(
+            CASE 
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ENG1222' AND student_id = S.student_id) IS NULL THEN 'No Repeat'
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ENG1222' AND student_id = S.student_id) IN ('C', 'C+') THEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ENG1222' AND student_id = S.student_id)
+                ELSE 'C+'
+            END, 'No Repeat'
+        ) AS ENG1222,
+        COALESCE(
+            CASE 
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1212' AND student_id = S.student_id) IS NULL THEN 'No Repeat'
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1212' AND student_id = S.student_id) IN ('C', 'C+') THEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1212' AND student_id = S.student_id)
+                ELSE 'C+'
+            END, 'No Repeat'
+        ) AS ICT1212,
+        COALESCE(
+            CASE 
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1222' AND student_id = S.student_id) IS NULL THEN 'No Repeat'
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1222' AND student_id = S.student_id) IN ('C', 'C+') THEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1222' AND student_id = S.student_id)
+                ELSE 'C+'
+            END, 'No Repeat'
+        ) AS ICT1222,
+        COALESCE(
+            CASE 
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1233' AND student_id = S.student_id) IS NULL THEN 'No Repeat'
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1233' AND student_id = S.student_id) IN ('C', 'C+') THEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1233' AND student_id = S.student_id)
+                ELSE 'C+'
+            END, 'No Repeat'
+        ) AS ICT1233,
+        COALESCE(
+            CASE 
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1242' AND student_id = S.student_id) IS NULL THEN 'No Repeat'
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1242' AND student_id = S.student_id) IN ('C', 'C+') THEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1242' AND student_id = S.student_id)
+                ELSE 'C+'
+            END, 'No Repeat'
+        ) AS ICT1242,
+        COALESCE(
+            CASE 
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1253' AND student_id = S.student_id) IS NULL THEN 'No Repeat'
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1253' AND student_id = S.student_id) IN ('C', 'C+') THEN (SELECT grade FROM `student_grade` WHERE Course_id = 'ICT1253' AND student_id = S.student_id)
+                ELSE 'C+'
+            END, 'No Repeat'
+        ) AS ICT1253,
+        COALESCE(
+            CASE 
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'TCS1212' AND student_id = S.student_id) IS NULL THEN 'No Repeat'
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'TCS1212' AND student_id = S.student_id) IN ('C', 'C+') THEN (SELECT grade FROM `student_grade` WHERE Course_id = 'TCS1212' AND student_id = S.student_id)
+                ELSE 'C+'
+            END, 'No Repeat'
+        ) AS TCS1212,
+        COALESCE(
+            CASE 
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'TMS1233' AND student_id = S.student_id) IS NULL THEN 'No Repeat'
+                WHEN (SELECT grade FROM `student_grade` WHERE Course_id = 'TMS1233' AND student_id = S.student_id) IN ('C', 'C+') THEN (SELECT grade FROM `student_grade` WHERE Course_id = 'TMS1233' AND student_id = S.student_id)
+                ELSE 'C+'
+            END, 'No Repeat'
+        ) AS TMS1233,
+        SP.SGPA,
+        SP.CGPA
+    FROM 
+        `student` AS S
+    JOIN 
+        Student_Performance AS SP ON S.student_id = SP.student_id
+    WHERE 
+        S.batch = batch;
+END //
+
+DELIMITER ;
+
+CALL GetStudentDetailsByBatch('2021'); 
+# repeat student
+CALL GetStudentDetailsByBatch('2022');
+## proper student;

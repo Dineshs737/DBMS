@@ -1,7 +1,7 @@
 ## `attendance` table structure
 CREATE TABLE IF NOT EXISTS `attendance` (
-  `student_id` varchar(10) NOT NULL,
-  `course_id` varchar(10) NOT NULL,
+  `student_id` varchar(6) NOT NULL,
+  `course_id` varchar(8) NOT NULL,
   `week_01` varchar(2) DEFAULT NULL,
   `week_02` varchar(2) DEFAULT NULL,
   `week_03` varchar(2) DEFAULT NULL,
@@ -17,8 +17,32 @@ CREATE TABLE IF NOT EXISTS `attendance` (
   `week_13` varchar(2) DEFAULT NULL,
   `week_14` varchar(2) DEFAULT NULL,
   `week_15` varchar(2) DEFAULT NULL,
-  `total_attended` int(11) GENERATED ALWAYS AS (case when `week_01` = 'AB' then 0 when `week_01` = 'MC' then 1 else cast(`week_01` as signed) end + case when `week_02` = 'AB' then 0 when `week_02` = 'MC' then 1 else cast(`week_02` as signed) end + case when `week_03` = 'AB' then 0 when `week_03` = 'MC' then 1 else cast(`week_03` as signed) end + case when `week_04` = 'AB' then 0 when `week_04` = 'MC' then 1 else cast(`week_04` as signed) end + case when `week_05` = 'AB' then 0 when `week_05` = 'MC' then 1 else cast(`week_05` as signed) end + case when `week_06` = 'AB' then 0 when `week_06` = 'MC' then 1 else cast(`week_06` as signed) end + case when `week_07` = 'AB' then 0 when `week_07` = 'MC' then 1 else cast(`week_07` as signed) end + case when `week_08` = 'AB' then 0 when `week_08` = 'MC' then 1 else cast(`week_08` as signed) end + case when `week_09` = 'AB' then 0 when `week_09` = 'MC' then 1 else cast(`week_09` as signed) end + case when `week_10` = 'AB' then 0 when `week_10` = 'MC' then 1 else cast(`week_10` as signed) end + case when `week_11` = 'AB' then 0 when `week_11` = 'MC' then 1 else cast(`week_11` as signed) end + case when `week_12` = 'AB' then 0 when `week_12` = 'MC' then 1 else cast(`week_12` as signed) end + case when `week_13` = 'AB' then 0 when `week_13` = 'MC' then 1 else cast(`week_13` as signed) end + case when `week_14` = 'AB' then 0 when `week_14` = 'MC' then 1 else cast(`week_14` as signed) end + case when `week_15` = 'AB' then 0 when `week_15` = 'MC' then 1 else cast(`week_15` as signed) end) VIRTUAL
+  `total_attended` int(11) GENERATED ALWAYS AS (
+      CASE WHEN `week_01` = 'AB' THEN 0 WHEN `week_01` = 'MC' THEN 1 ELSE CAST(`week_01` AS SIGNED) END +
+      CASE WHEN `week_02` = 'AB' THEN 0 WHEN `week_02` = 'MC' THEN 1 ELSE CAST(`week_02` AS SIGNED) END +
+      CASE WHEN `week_03` = 'AB' THEN 0 WHEN `week_03` = 'MC' THEN 1 ELSE CAST(`week_03` AS SIGNED) END +
+      CASE WHEN `week_04` = 'AB' THEN 0 WHEN `week_04` = 'MC' THEN 1 ELSE CAST(`week_04` AS SIGNED) END +
+      CASE WHEN `week_05` = 'AB' THEN 0 WHEN `week_05` = 'MC' THEN 1 ELSE CAST(`week_05` AS SIGNED) END +
+      CASE WHEN `week_06` = 'AB' THEN 0 WHEN `week_06` = 'MC' THEN 1 ELSE CAST(`week_06` AS SIGNED) END +
+      CASE WHEN `week_07` = 'AB' THEN 0 WHEN `week_07` = 'MC' THEN 1 ELSE CAST(`week_07` AS SIGNED) END +
+      CASE WHEN `week_08` = 'AB' THEN 0 WHEN `week_08` = 'MC' THEN 1 ELSE CAST(`week_08` AS SIGNED) END +
+      CASE WHEN `week_09` = 'AB' THEN 0 WHEN `week_09` = 'MC' THEN 1 ELSE CAST(`week_09` AS SIGNED) END +
+      CASE WHEN `week_10` = 'AB' THEN 0 WHEN `week_10` = 'MC' THEN 1 ELSE CAST(`week_10` AS SIGNED) END +
+      CASE WHEN `week_11` = 'AB' THEN 0 WHEN `week_11` = 'MC' THEN 1 ELSE CAST(`week_11` AS SIGNED) END +
+      CASE WHEN `week_12` = 'AB' THEN 0 WHEN `week_12` = 'MC' THEN 1 ELSE CAST(`week_12` AS SIGNED) END +
+      CASE WHEN `week_13` = 'AB' THEN 0 WHEN `week_13` = 'MC' THEN 1 ELSE CAST(`week_13` AS SIGNED) END +
+      CASE WHEN `week_14` = 'AB' THEN 0 WHEN `week_14` = 'MC' THEN 1 ELSE CAST(`week_14` AS SIGNED) END +
+      CASE WHEN `week_15` = 'AB' THEN 0 WHEN `week_15` = 'MC' THEN 1 ELSE CAST(`week_15` AS SIGNED) END
+  ) VIRTUAL,
+  `attendance_percentage` DECIMAL(5, 2) GENERATED ALWAYS AS (
+      CASE 
+          WHEN `total_attended` IS NULL OR 15 = 0 THEN 0 
+          ELSE (`total_attended` / 15.0) * 100 
+      END
+  ) VIRTUAL,
+  PRIMARY KEY (`student_id`, `course_id`)  -- Assuming a composite primary key based on student and course
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 ## insert data into `attendance`
 ##SART
@@ -224,3 +248,32 @@ INSERT INTO `attendance` (`student_id`, `course_id`, `week_01`, `week_02`, `week
 ('TG1427', 'ICT1283', '1', '1', 'MC', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'AB', '1', '1'),
 ('TG1427', 'ICT1293', '1', '1', 'AB', '1', '1', 'AB', '1', 'AB', '1', 'AB', '1', '1', 'AB', '1', 'MC'),
 ('TG1427', 'ICT12102', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'AB', '1', '1', 'AB', '1', 'MC');
+
+
+
+ALTER TABLE `attendance`
+MODIFY COLUMN `student_id` CHAR(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+ALTER TABLE `student`
+MODIFY COLUMN `student_id` CHAR(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+ALTER TABLE `admin`
+ADD CONSTRAINT `fk_admin_user`
+FOREIGN KEY (`NIC`) REFERENCES `user`(`NIC`)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+
+CREATE VIEW Attendance_Eligibility AS
+SELECT DISTINCT
+    SA.student_id, 
+    S.name AS StudentName,
+    (CASE 
+        WHEN SA.attendance_percentage >= 80.00 THEN 'Eligible'
+        ELSE 'Not Eligible'
+    END) AS eligibility
+FROM 
+    attendance AS SA
+JOIN 
+    student AS S ON SA.student_id = S.student_id;
+
+SELECT * FROM Attendance_Eligibility;
