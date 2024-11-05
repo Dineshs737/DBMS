@@ -1,3 +1,4 @@
+
 DROP DATABASE IF EXISTS `TechWizards_techlms`;
 CREATE DATABASE `TechWizards_techlms`;
 USE  `TechWizards_techlms`;
@@ -1760,6 +1761,11 @@ FOREIGN KEY (`student_id`) REFERENCES `student`(`student_id`)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 
+
+CREATE VIEW seeAllAttendance AS 
+SELECT * FROM  `attendance` ;
+
+SELECT * FROM seeAllAttendance;
 
 CREATE VIEW Attendance_Eligibility AS
 SELECT DISTINCT
